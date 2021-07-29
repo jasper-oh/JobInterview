@@ -343,6 +343,29 @@ DROP VIEW 서울고객 RESTRICT;
 
 정렬된 상태이기 때문에 어디부터 스캔할지 정하여 index range scan을 통해 full scan보다 빠르게 데이터에 접근할 수 있음
 
+<< 장점 >>
+
+데이터 테이블 full scan대신 더 빠르게 데이터에 접근할 수 있게 해줌. 즉 select절의 속도가 빨라짐.
+
+<< 단점 >>
+
+insert, update의 속도가 저하됨. 정렬된 상태를 유지해야하고, 테이블 외에 인덱스 테이블에도 insert, update를 해줘야 하기 때문에, insert와 update가 빈번히 일어나는 테이블에 대해서는 index 설정이 성능에 부정적 영향을 줄 수도 있음
+
+<< 종류 >>
+btree index (balanced tree)
+cluster index
+IOT
+
 #### 프로시져란 ? 함수란 ? 패키지란 ?
+
+> > 패키지
+
+오라클에서 패키지(Package)는
+
+프로시저(Procedure)와 함수(Function) 집합이라고 보면 되는데
+
+한 패키지 안에 프로시저와 함수를 넣어놓고
+
+필요할 때 패키지 내에 있는 프로시저와 함수를 뽑아 사용하는 식이다
 
 #### 트리거란 ?
